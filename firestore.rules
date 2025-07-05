@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Tasks collection - users can only access their own tasks
+    match /tasks/{taskId} {
+      // Allow read and write if the user is authenticated and the task belongs to them
+      allow read, update, delete: if request.auth != null && request.auth.uid == resource.data.userId;
+      
+      // Allow create if the user is authenticated and the task is being created with their userId
+      allow create: if request.auth != null && request.auth.uid == request.resource.data.userId;
+    }
+    
+    // Deny all other access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+} 
