@@ -22,7 +22,7 @@ import {
 // Replace with your actual Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyA-CQQ1hZ7AerrIXqroVyAjYEx3mJlY6V8",
-  authDomain: "todolist-firebase-f6ee0.firebaseapp.com",
+  authDomain: "https://todo-aykays.vercel.app",
   projectId: "todolist-firebase-f6ee0",
   storageBucket: "todolist-firebase-f6ee0.firebasestorage.app",
   messagingSenderId: "254448088807",
